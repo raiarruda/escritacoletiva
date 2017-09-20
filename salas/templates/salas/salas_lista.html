@@ -1,0 +1,47 @@
+{% extends 'salas/base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<div class="row">
+<div class="panel">
+
+  <div class="panel">
+    {% include 'salas/escrever.html'%}
+
+  </div>
+<table class="table">
+  <thead class="thead thead-danger">
+    <tr>
+      <th>Título</th>
+      <th>Timer</th>
+      <th>Número de Rodadas</th>
+      <th>Número de Participantes</th>
+    </tr>
+  </thead>
+  <div class="panel-body">
+  <tbody>
+   {% for sala in salas %}
+    <tr>
+      <th scope="row">{{sala.titulo}}</th>
+      <td><a class="btn btn-default" href="{% url 'participar_sala' pk=sala.pk %}">Participar</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+
+
+</table>
+</div>
+
+
+</div>
+<a href="{% url 'sala_nova' %}"><button><span class="glyphicon glyphicon-plus"></span> Nova Sala</button></a>
+<a href="{% url 'escrever' %}"><button><span class="glyphicon glyphicon-plus"></span> Escrever</button></a>
+
+
+
+</div>
+
+</div>
+{% endblock content %}

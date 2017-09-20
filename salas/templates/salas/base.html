@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Escrita Coletiva</title>
+    <title>Django Girls blog</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<!--    <link rel="stylesheet" href="{% static 'css/blog.css' %}">-->
+
+
+</head>
+
+<body>
+    <div class="container container-fluid container-inverse">
+    <div class="navbar ">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="{% url 'home' %}" class="navbar-brand">Escrita Cooperativa</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'salas' %}">Salas</a></li>
+            </ul>
+            {% include 'salas/loginpartial.html' %}
+            </div>
+        </div>
+    </div>
+
+    <div class="content container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

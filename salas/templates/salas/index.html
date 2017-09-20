@@ -1,0 +1,73 @@
+{% extends "salas/base.html" %}
+
+
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="panel">
+        <div class="panel-heading" >
+            <div    class="col-xs-4 col-sm-4">
+                 <h3>Participante 1 escrevendo ...</h3>
+            </div>
+            <div class="col-xs-4 col-sm-4">
+               <h3>Timer: 10</h3>
+            </div>
+            <div class="col-xs-4 col-sm-4">
+                <h3>Rodada 1</h3>
+            </div>
+                  <div style="padding-bottom:10px;">
+
+                  </div>
+        </div>
+        <div class="panel-body">
+
+    <div class="col-xs-4 col-sm-4 panel"   >
+
+      {% include 'salas/sala_editar.html'%}
+
+    </div>
+    <div class="col-xs-4 col-sm-4"  >
+        <div class="chat-page-container">
+            <div class="chat-page-content">
+                <div class="chat-body" style="min-height:200px;">
+
+          <!--  {   % for paragrafo in paragrafos %} -->
+
+                         paragrafo 1
+
+
+                </div>
+
+
+
+                 <div style="padding: 10px 10px 10px 10px"></div>
+                <div class="row">
+                    <div class="col-xs-9 col-sm-9">
+                        <input type="text" placeholder="Digite aqui o paragráfo" class="form-control" />
+                    </div>
+                    <div class="col-xs-3 col-sm-3">
+                        <button class="btn btn-block">Enviar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4 col-sm-4"   >
+         <div class="box">
+               <!-- <iframe src="https://kiwiirc.com/client/irc.teste/#teste" style="border:0; width:100%; height:450px;"></iframe>
+                 -->
+             <div id="tlkio" data-channel="brainstommer" data-theme="theme--minimal" style="width:100%;height:400px;"></div><script async src="http://tlk.io/embed.js" type="text/javascript"></script>
+         </div>
+    </div>
+        </div>
+
+
+        </div>
+
+
+</div>
+
+
+{% endblock %}
