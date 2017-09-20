@@ -8,7 +8,7 @@
     <div class="panel">
         <div class="panel-heading" >
             <div    class="col-xs-4 col-sm-4">
-                 <h3>Participante 1 escrevendo ...</h3>
+                 <h3>{{ user.username | title }} escrevendo ...</h3>
             </div>
             <div class="col-xs-4 col-sm-4">
                <h3>Timer: 10</h3>
@@ -24,7 +24,7 @@
 
     <div class="col-xs-4 col-sm-4 panel"   >
 
-      {% include 'salas/sala_editar.html'%}
+  <!--    {% include 'salas/sala_editar.html'%}-->
 
     </div>
     <div class="col-xs-4 col-sm-4"  >
@@ -44,6 +44,7 @@
                  <div style="padding: 10px 10px 10px 10px"></div>
                 <div class="row">
                     <div class="col-xs-9 col-sm-9">
+                        <a href="{% url 'escrever' %}"><button><span class="glyphicon glyphicon-plus"></span> Escrever</button></a>
                         <input type="text" placeholder="Digite aqui o paragráfo" class="form-control" />
                     </div>
                     <div class="col-xs-3 col-sm-3">

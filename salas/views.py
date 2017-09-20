@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.http import HttpRequest,HttpResponse
 from django.template import RequestContext,loader
 from datetime import datetime
@@ -58,5 +58,26 @@ def participar_sala(request,pk):
     p = tornar_participante()
     sala=get_object_or_404(db_sala, pk=pk)
     sala.participantes.add(p)
-
+''' 
     return redirect(request, 'salas/index.html',{'title':'Bem-Vindo', 'year':datetime.now().year})
+
+def handler400(request):
+    #response = render_to_response('404.html', {},
+     #                             context_instance=RequestContext(request))
+    #response.status_code = 404
+    #return response
+    return render_to_response('../templates/error/400.html', {'exception': ex},
+                                      context_instance=RequestContext(request), status=400)
+
+def handler403(request):
+        return render_to_response('../templates/error/403.html', {'exception': ex},
+                                      context_instance=RequestContext(request), status=403)
+
+def handler404(request):
+        return render_to_response('../templates/error/404.html', {'exception': ex},
+                                      context_instance=RequestContext(request), status=404)
+
+def server_error(request):
+        return render_to_response('../templates/error/500.html', {},
+                                      context_instance=RequestContext(request), status=500)
+ '''
