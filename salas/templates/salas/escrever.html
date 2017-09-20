@@ -1,4 +1,8 @@
+{% extends "salas/base.html" %}
+{% load static %}
+{% block content %}
 <form role="form" method="POST" >{% csrf_token %}
+
     <!--
 
     {% for field in form %}
@@ -15,3 +19,5 @@
 
         <button type="submit" class="save btn btn-primary">Guardar</button>
   </form>
+  {% endblock %}
+  
