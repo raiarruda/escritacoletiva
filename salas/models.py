@@ -24,10 +24,10 @@ class db_sala(models.Model):
         return self.titulo
 
 class db_escrita(models.Model):
-    #sala = models.ForeignObject(db)
+    sala = models.ForeignKey(db_sala, null=True, related_name='sala')
     posicao_paragrafo = models.AutoField(primary_key=True)
     paragrafo = models.TextField()
-    usuario = models.ForeignKey(User, null=True)
+    usuario = models.ForeignKey(User, null=True,related_name='usuario')
 
     def iniciar(self):
         self.save()

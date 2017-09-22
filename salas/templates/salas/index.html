@@ -23,8 +23,15 @@
         <div class="panel-body">
 
     <div class="col-xs-4 col-sm-4 panel"   >
+        
+        {%for p in participantes %}
+        <div class="row">
+                <span class="glyphicon glyphicon-user"></span> {{p.usuario}}
 
-  <!--    {% include 'salas/sala_editar.html'%}-->
+        </div>
+
+       {%endfor%}
+
 
     </div>
     <div class="col-xs-4 col-sm-4"  >
@@ -32,11 +39,13 @@
             <div class="chat-page-content">
                 <div class="chat-body" style="min-height:200px;">
 
-          <!--  {   % for paragrafo in paragrafos %} -->
+                {% for paragrafo in paragrafos %}
 
-                         paragrafo 1
+                <p>
+                    {{paragrafo.paragrafo}}
+                </p>                         
 
-
+                {% endfor%}
                 </div>
 
 

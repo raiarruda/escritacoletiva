@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, render_to_response
 from django.http import HttpRequest,HttpResponse
 from django.template import RequestContext,loader
-from datetime import datetime
-from .models import db_sala, db_participante
-from .forms import SalaForm, EscritaForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from .models import db_sala, db_participante, db_escrita
+from .forms import SalaForm, EscritaForm
 from random import randint
-
+from datetime import datetime
 
 @login_required
 def salas(request):
@@ -44,7 +44,13 @@ def teste_escrita(request):
 @login_required
 def home(request):
     assert isinstance(request, HttpRequest)
-    return render(request, 'salas/index.html',{'title':'Bem-Vindo', 'year':datetime.now().year})
+  #  participantes = db_participante.objects.all().order_by('posicao')
+    paragrafos = db_escrita.objects.all().filter(sala=(db_sala.objects.all().get(pk=1)))
+    return render(request, 'salas/index.html',{'title':'Bem-Vindo', 
+                                                'year':datetime.now().year, 
+                                                'paragrafos':paragrafos,
+                                              #  'participantes': participantes
+                                               })
 
 @login_required
 def tornar_participante(request):
