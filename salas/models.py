@@ -24,6 +24,7 @@ class db_sala(models.Model):
         return self.titulo
 
 class db_escrita(models.Model):
+    #sala = models.ForeignObject(db)
     posicao_paragrafo = models.AutoField(primary_key=True)
     paragrafo = models.TextField()
     usuario = models.ForeignKey(User, null=True)
