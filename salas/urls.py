@@ -8,12 +8,12 @@ from . import views
 
 
 urlpatterns = [
-    #url(r'^$', views.login, name=login),
-    url(r'^home$', views.home, name='home'), #adcionaie esse home aqui
-    url(r'^salas/nova/$', views.sala_criar, name='sala_nova'),
-    url(r'^escrever/$', views.teste_escrita, name='escrever'),
-    url(r'^salas', views.salas, name='salas'),
-    url(r'^salas/participar/(?P<pk>[0-9]+)/$',views.participar_sala, name = 'participar_sala'),
+    #url(r'^$', views.login, name=login),  
+    url(r'^home', views.home, name='home'),
+    url(r'^sala/(?P<pk>[0-9]+)/$', views.sala, name='sala'),
+    url(r'^salas/nova/$', views.sala_nova, name='sala_nova'),
+    url(r'^escrever/$', views.teste_escrita, name='escrever'),  
+  #  url(r'^salas/participar/(?P<pk>[0-9]+)/$',views.participar_sala, name = 'participar_sala'),
     url(r'^$',
         django.contrib.auth.views.login,
         {

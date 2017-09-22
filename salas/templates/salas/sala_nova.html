@@ -2,7 +2,6 @@
 {% load static %}
 {% block content %}
 <form role="form" method="POST" >{% csrf_token %}
-    <!--    {{ form.as_p }}-->
 
         {% for field in form %}
         <div class="form-group">
@@ -14,14 +13,11 @@
         </div>
         {% endfor %}
 
+        <button class="save btn btn-primary" type="submit">Guardar</button>
 
-
-
-
-
-
-
-        <button type="submit" class="save btn btn-primary">Guardar</button>
+        
+        
+        
   </form>
   {% endblock %}
   

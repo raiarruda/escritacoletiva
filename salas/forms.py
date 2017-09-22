@@ -28,4 +28,4 @@ class EscritaForm(forms.ModelForm):
 
     class Meta:
         model = db_escrita
-        fields = ('paragrafo','posicao_paragrafo')
+        fields = ('paragrafo','posicao_paragrafo','sala')
